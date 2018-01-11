@@ -49,6 +49,8 @@
 		A061FCFE2006777F00FD01D5 /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
 		A061FD002006777F00FD01D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A061FD012006777F00FD01D5 /* extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = extension.entitlements; sourceTree = "<group>"; };
+		A061FD0A200685B300FD01D5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		A061FD0D2006873C00FD01D5 /* paper-plane.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "paper-plane.svg"; sourceTree = "<group>"; };
 		A0753B722006736F00EF26B6 /* ShadowSNE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShadowSNE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0753B752006736F00EF26B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0753B772006736F00EF26B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -96,11 +98,21 @@
 			path = extension;
 			sourceTree = "<group>";
 		};
+		A061FD0C2006872800FD01D5 /* misc */ = {
+			isa = PBXGroup;
+			children = (
+				A061FD0A200685B300FD01D5 /* README.md */,
+				A061FD0D2006873C00FD01D5 /* paper-plane.svg */,
+			);
+			path = misc;
+			sourceTree = "<group>";
+		};
 		A0753B692006736E00EF26B6 = {
 			isa = PBXGroup;
 			children = (
 				A0753B742006736F00EF26B6 /* ShadowSNE */,
 				A061FCFD2006777F00FD01D5 /* extension */,
+				A061FD0C2006872800FD01D5 /* misc */,
 				A0753B732006736F00EF26B6 /* Products */,
 				A061FCF42006770600FD01D5 /* Frameworks */,
 			);
