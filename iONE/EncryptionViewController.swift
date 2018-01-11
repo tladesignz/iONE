@@ -1,6 +1,6 @@
 //
 //  EncryptionViewController.swift
-//  ShadowSNE
+//  iONE
 //
 //  Created by Benjamin Erhart on 11.01.18.
 //  Copyright © 2018 Guardian Project. All rights reserved.

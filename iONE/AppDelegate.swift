@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  ShadowSNE
+//  iONE
 //
 //  Created by Benjamin Erhart on 10.01.18.
 //  Copyright © 2018 Guardian Project. All rights reserved.

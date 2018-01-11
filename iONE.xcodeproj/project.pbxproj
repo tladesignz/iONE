@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A061FCF62006770600FD01D5 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A061FCF52006770600FD01D5 /* NetworkExtension.framework */; };
 		A061FCFF2006777F00FD01D5 /* PacketTunnelProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A061FCFE2006777F00FD01D5 /* PacketTunnelProvider.swift */; };
-		A061FD042006777F00FD01D5 /* extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A061FCFC2006777F00FD01D5 /* extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		A061FD042006777F00FD01D5 /* Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A061FCFC2006777F00FD01D5 /* Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A061FD09200677AF00FD01D5 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A061FCF52006770600FD01D5 /* NetworkExtension.framework */; };
 		A0753B762006736F00EF26B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0753B752006736F00EF26B6 /* AppDelegate.swift */; };
 		A0753B782006736F00EF26B6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0753B772006736F00EF26B6 /* MainViewController.swift */; };
@@ -36,7 +36,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				A061FD042006777F00FD01D5 /* extension.appex in Embed App Extensions */,
+				A061FD042006777F00FD01D5 /* Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -45,14 +45,14 @@
 
 /* Begin PBXFileReference section */
 		A061FCF52006770600FD01D5 /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
-		A061FCF72006770600FD01D5 /* ShadowSNE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ShadowSNE.entitlements; sourceTree = "<group>"; };
-		A061FCFC2006777F00FD01D5 /* extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		A061FCF72006770600FD01D5 /* iONE.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iONE.entitlements; sourceTree = "<group>"; };
+		A061FCFC2006777F00FD01D5 /* Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = Extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A061FCFE2006777F00FD01D5 /* PacketTunnelProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PacketTunnelProvider.swift; sourceTree = "<group>"; };
 		A061FD002006777F00FD01D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A061FD012006777F00FD01D5 /* extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = extension.entitlements; sourceTree = "<group>"; };
+		A061FD012006777F00FD01D5 /* Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Extension.entitlements; sourceTree = "<group>"; };
 		A061FD0A200685B300FD01D5 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A061FD0D2006873C00FD01D5 /* paper-plane.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "paper-plane.svg"; sourceTree = "<group>"; };
-		A0753B722006736F00EF26B6 /* ShadowSNE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShadowSNE.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A0753B722006736F00EF26B6 /* iONE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iONE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0753B752006736F00EF26B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0753B772006736F00EF26B6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A0753B7A2006736F00EF26B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,14 +90,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A061FCFD2006777F00FD01D5 /* extension */ = {
+		A061FCFD2006777F00FD01D5 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				A061FCFE2006777F00FD01D5 /* PacketTunnelProvider.swift */,
 				A061FD002006777F00FD01D5 /* Info.plist */,
-				A061FD012006777F00FD01D5 /* extension.entitlements */,
+				A061FD012006777F00FD01D5 /* Extension.entitlements */,
 			);
-			path = extension;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		A061FD0C2006872800FD01D5 /* misc */ = {
@@ -112,8 +112,8 @@
 		A0753B692006736E00EF26B6 = {
 			isa = PBXGroup;
 			children = (
-				A0753B742006736F00EF26B6 /* ShadowSNE */,
-				A061FCFD2006777F00FD01D5 /* extension */,
+				A0753B742006736F00EF26B6 /* iONE */,
+				A061FCFD2006777F00FD01D5 /* Extension */,
 				A061FD0C2006872800FD01D5 /* misc */,
 				A0753B732006736F00EF26B6 /* Products */,
 				A061FCF42006770600FD01D5 /* Frameworks */,
@@ -123,16 +123,16 @@
 		A0753B732006736F00EF26B6 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A0753B722006736F00EF26B6 /* ShadowSNE.app */,
-				A061FCFC2006777F00FD01D5 /* extension.appex */,
+				A0753B722006736F00EF26B6 /* iONE.app */,
+				A061FCFC2006777F00FD01D5 /* Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A0753B742006736F00EF26B6 /* ShadowSNE */ = {
+		A0753B742006736F00EF26B6 /* iONE */ = {
 			isa = PBXGroup;
 			children = (
-				A061FCF72006770600FD01D5 /* ShadowSNE.entitlements */,
+				A061FCF72006770600FD01D5 /* iONE.entitlements */,
 				A0753B752006736F00EF26B6 /* AppDelegate.swift */,
 				A0753B772006736F00EF26B6 /* MainViewController.swift */,
 				A0EAFF882007AE9E00E4453A /* EncryptionViewController.swift */,
@@ -141,15 +141,15 @@
 				A0753B7E2006736F00EF26B6 /* LaunchScreen.storyboard */,
 				A0753B812006736F00EF26B6 /* Info.plist */,
 			);
-			path = ShadowSNE;
+			path = iONE;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A061FCFB2006777F00FD01D5 /* extension */ = {
+		A061FCFB2006777F00FD01D5 /* Extension */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A061FD052006777F00FD01D5 /* Build configuration list for PBXNativeTarget "extension" */;
+			buildConfigurationList = A061FD052006777F00FD01D5 /* Build configuration list for PBXNativeTarget "Extension" */;
 			buildPhases = (
 				A061FCF82006777F00FD01D5 /* Sources */,
 				A061FCF92006777F00FD01D5 /* Frameworks */,
@@ -159,14 +159,14 @@
 			);
 			dependencies = (
 			);
-			name = extension;
+			name = Extension;
 			productName = extension;
-			productReference = A061FCFC2006777F00FD01D5 /* extension.appex */;
+			productReference = A061FCFC2006777F00FD01D5 /* Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		A0753B712006736F00EF26B6 /* ShadowSNE */ = {
+		A0753B712006736F00EF26B6 /* iONE */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A0753B842006736F00EF26B6 /* Build configuration list for PBXNativeTarget "ShadowSNE" */;
+			buildConfigurationList = A0753B842006736F00EF26B6 /* Build configuration list for PBXNativeTarget "iONE" */;
 			buildPhases = (
 				A0753B6E2006736F00EF26B6 /* Sources */,
 				A0753B6F2006736F00EF26B6 /* Frameworks */,
@@ -178,9 +178,9 @@
 			dependencies = (
 				A061FD032006777F00FD01D5 /* PBXTargetDependency */,
 			);
-			name = ShadowSNE;
-			productName = ShadowSNE;
-			productReference = A0753B722006736F00EF26B6 /* ShadowSNE.app */;
+			name = iONE;
+			productName = iONE;
+			productReference = A0753B722006736F00EF26B6 /* iONE.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -195,7 +195,7 @@
 				TargetAttributes = {
 					A061FCFB2006777F00FD01D5 = {
 						CreatedOnToolsVersion = 9.2;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 0;
@@ -216,7 +216,7 @@
 					};
 				};
 			};
-			buildConfigurationList = A0753B6D2006736E00EF26B6 /* Build configuration list for PBXProject "ShadowSNE" */;
+			buildConfigurationList = A0753B6D2006736E00EF26B6 /* Build configuration list for PBXProject "iONE" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -229,8 +229,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A0753B712006736F00EF26B6 /* ShadowSNE */,
-				A061FCFB2006777F00FD01D5 /* extension */,
+				A0753B712006736F00EF26B6 /* iONE */,
+				A061FCFB2006777F00FD01D5 /* Extension */,
 			);
 		};
 /* End PBXProject section */
@@ -279,7 +279,7 @@
 /* Begin PBXTargetDependency section */
 		A061FD032006777F00FD01D5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = A061FCFB2006777F00FD01D5 /* extension */;
+			target = A061FCFB2006777F00FD01D5 /* Extension */;
 			targetProxy = A061FD022006777F00FD01D5 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -307,13 +307,15 @@
 		A061FD062006777F00FD01D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = extension/extension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = Extension/Extension.entitlements;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = W36S8KLY7S;
-				INFOPLIST_FILE = extension/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.netzarchitekten.ShadowSNE.extension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netzarchitekten.iONE.Ext;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "59eaee16-000b-4e00-8f00-2dd232e85115";
+				PROVISIONING_PROFILE_SPECIFIER = "iONE Extension Dev";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -323,13 +325,14 @@
 		A061FD072006777F00FD01D5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = extension/extension.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = Extension/Extension.entitlements;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = extension/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.netzarchitekten.ShadowSNE.extension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netzarchitekten.iONE.Ext;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -448,17 +451,17 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ShadowSNE/ShadowSNE.entitlements;
+				CODE_SIGN_ENTITLEMENTS = iONE/iONE.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = W36S8KLY7S;
-				INFOPLIST_FILE = ShadowSNE/Info.plist;
+				INFOPLIST_FILE = iONE/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.netzarchitekten.ShadowSNE;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netzarchitekten.iONE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "99e834b3-5d19-4c18-b128-8840f792d6b7";
-				PROVISIONING_PROFILE_SPECIFIER = "ShadowSNE Dev";
+				PROVISIONING_PROFILE = "9ac5a138-5ef2-44e6-b0b7-93d7de695553";
+				PROVISIONING_PROFILE_SPECIFIER = "iONE Dev";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -469,14 +472,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = ShadowSNE/ShadowSNE.entitlements;
+				CODE_SIGN_ENTITLEMENTS = iONE/iONE.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = ShadowSNE/Info.plist;
+				INFOPLIST_FILE = iONE/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.netzarchitekten.ShadowSNE;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netzarchitekten.iONE;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -487,7 +490,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A061FD052006777F00FD01D5 /* Build configuration list for PBXNativeTarget "extension" */ = {
+		A061FD052006777F00FD01D5 /* Build configuration list for PBXNativeTarget "Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A061FD062006777F00FD01D5 /* Debug */,
@@ -496,7 +499,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A0753B6D2006736E00EF26B6 /* Build configuration list for PBXProject "ShadowSNE" */ = {
+		A0753B6D2006736E00EF26B6 /* Build configuration list for PBXProject "iONE" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0753B822006736F00EF26B6 /* Debug */,
@@ -505,7 +508,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A0753B842006736F00EF26B6 /* Build configuration list for PBXNativeTarget "ShadowSNE" */ = {
+		A0753B842006736F00EF26B6 /* Build configuration list for PBXNativeTarget "iONE" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				A0753B852006736F00EF26B6 /* Debug */,

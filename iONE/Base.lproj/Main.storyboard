@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--ShadowSNE-->
+        <!--iONE-->
         <scene sceneID="cdy-6L-ZuN">
             <objects>
-                <tableViewController storyboardIdentifier="mainVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3JL-j2-4WB" customClass="MainViewController" customModule="ShadowSNE" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="mainVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3JL-j2-4WB" customClass="MainViewController" customModule="iONE" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="9ZA-g5-wFN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -154,7 +154,7 @@
                             <outlet property="delegate" destination="3JL-j2-4WB" id="Mzo-E2-qrw"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="ShadowSNE" id="cev-Dy-ayn"/>
+                    <navigationItem key="navigationItem" title="iONE" id="cev-Dy-ayn"/>
                     <connections>
                         <outlet property="connectBt" destination="f3D-tH-pnZ" id="a52-AQ-apc"/>
                         <outlet property="encryptionLb" destination="0sK-ZX-jzf" id="AVq-h3-EdV"/>
@@ -170,7 +170,7 @@
         <!--Encryption-->
         <scene sceneID="SPG-J3-faX">
             <objects>
-                <tableViewController storyboardIdentifier="encryptionVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Dwy-Zh-CTc" customClass="EncryptionViewController" customModule="ShadowSNE" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="encryptionVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Dwy-Zh-CTc" customClass="EncryptionViewController" customModule="iONE" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="0Fg-8E-Za4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
