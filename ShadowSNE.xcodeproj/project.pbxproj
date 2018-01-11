@@ -12,10 +12,11 @@
 		A061FD042006777F00FD01D5 /* extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = A061FCFC2006777F00FD01D5 /* extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		A061FD09200677AF00FD01D5 /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A061FCF52006770600FD01D5 /* NetworkExtension.framework */; };
 		A0753B762006736F00EF26B6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0753B752006736F00EF26B6 /* AppDelegate.swift */; };
-		A0753B782006736F00EF26B6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0753B772006736F00EF26B6 /* ViewController.swift */; };
+		A0753B782006736F00EF26B6 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0753B772006736F00EF26B6 /* MainViewController.swift */; };
 		A0753B7B2006736F00EF26B6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0753B792006736F00EF26B6 /* Main.storyboard */; };
 		A0753B7D2006736F00EF26B6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0753B7C2006736F00EF26B6 /* Assets.xcassets */; };
 		A0753B802006736F00EF26B6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0753B7E2006736F00EF26B6 /* LaunchScreen.storyboard */; };
+		A0EAFF892007AE9E00E4453A /* EncryptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0EAFF882007AE9E00E4453A /* EncryptionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,11 +54,12 @@
 		A061FD0D2006873C00FD01D5 /* paper-plane.svg */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "paper-plane.svg"; sourceTree = "<group>"; };
 		A0753B722006736F00EF26B6 /* ShadowSNE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShadowSNE.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0753B752006736F00EF26B6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A0753B772006736F00EF26B6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A0753B772006736F00EF26B6 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A0753B7A2006736F00EF26B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A0753B7C2006736F00EF26B6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0753B7F2006736F00EF26B6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A0753B812006736F00EF26B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A0EAFF882007AE9E00E4453A /* EncryptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncryptionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,7 +134,8 @@
 			children = (
 				A061FCF72006770600FD01D5 /* ShadowSNE.entitlements */,
 				A0753B752006736F00EF26B6 /* AppDelegate.swift */,
-				A0753B772006736F00EF26B6 /* ViewController.swift */,
+				A0753B772006736F00EF26B6 /* MainViewController.swift */,
+				A0EAFF882007AE9E00E4453A /* EncryptionViewController.swift */,
 				A0753B792006736F00EF26B6 /* Main.storyboard */,
 				A0753B7C2006736F00EF26B6 /* Assets.xcassets */,
 				A0753B7E2006736F00EF26B6 /* LaunchScreen.storyboard */,
@@ -265,7 +268,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0753B782006736F00EF26B6 /* ViewController.swift in Sources */,
+				A0753B782006736F00EF26B6 /* MainViewController.swift in Sources */,
+				A0EAFF892007AE9E00E4453A /* EncryptionViewController.swift in Sources */,
 				A0753B762006736F00EF26B6 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
