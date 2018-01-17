@@ -20,6 +20,7 @@ class MainViewController: UITableViewController, UITextFieldDelegate {
     var fields = [UITextField]()
 
     var manager: NETunnelProviderManager?
+    var session: NETunnelProviderSession?
     var conf: NETunnelProviderProtocol?
     var server: String?
     var port: String?
@@ -36,6 +37,8 @@ class MainViewController: UITableViewController, UITextFieldDelegate {
                 self.manager = managers[0]
                 self.conf = self.manager?.protocolConfiguration as? NETunnelProviderProtocol
 
+                // Where are these from? Must be a residue from development.
+                // We don't support multiple configurations, yet.
                 if managers.count > 1 {
                     var i = 0
                     for m in managers {
@@ -54,6 +57,8 @@ class MainViewController: UITableViewController, UITextFieldDelegate {
                 self.conf?.providerBundleIdentifier = "com.netzarchitekten.iONE.Ext"
                 self.conf?.disconnectOnSleep = false
             }
+
+            self.session = self.manager?.connection as? NETunnelProviderSession
 
             self.server = self.conf?.providerConfiguration?["server"] as? String
             self.port = self.conf?.providerConfiguration?["port"] as? String
@@ -118,13 +123,33 @@ class MainViewController: UITableViewController, UITextFieldDelegate {
     @IBAction func connect() {
         print("Connect!")
 
+        // Displayed in Settings app. Update to latest values.
         conf?.serverAddress = "\(self.server!):\(self.port!)"
 
+        // Update latest configuration changes.
         manager?.protocolConfiguration = conf
+
+        // Set VPN configuration enabled. (Gets a checkmark in Settings app.)
+        manager?.isEnabled = true
 
         manager?.saveToPreferences() { (error) -> Void in
             if let error = error as? NEVPNError {
-                print("Error: \(error)")
+                // Most times: User didn't allow to store or didn't enter passphrase/TouchID/FaceID
+                // correctly. But could be unable to write or similar.
+
+                // Don't show an error here - user already saw a UIAlertController and maybe even
+                // the passphrase scene or similar.
+                if error.errorCode != 5 /* "permission denied" */ {
+                    self.errorAlert(error)
+                }
+
+                return
+            }
+
+            do {
+                try self.session?.startVPNTunnel()
+            } catch let error {
+                self.errorAlert(error)
             }
         }
     }
@@ -144,5 +169,11 @@ class MainViewController: UITableViewController, UITextFieldDelegate {
 
         connectBt.isEnabled = !(server ?? "").isEmpty && !(port ?? "").isEmpty
             && !(password ?? "").isEmpty && !(encryption ?? "").isEmpty
+    }
+
+    private func errorAlert(_ error: Error) {
+        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        present(alert, animated: true)
     }
 }
