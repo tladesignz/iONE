@@ -16,6 +16,7 @@ class MainViewController: UITableViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var encryptionLb: UILabel!
     @IBOutlet weak var connectBt: UIButton!
+    @IBOutlet weak var statusLb: UILabel!
     
     var fields = [UITextField]()
 
@@ -59,11 +60,19 @@ class MainViewController: UITableViewController, UITextFieldDelegate {
         }
     }
 
+    private lazy var tap: UITapGestureRecognizer? = {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        return tap
+    }()
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         fields = [serverTF, portTF, passwordTF];
 
+        // Load configuration from store. Use only the first one, create one, if nothing there, yet.
         NETunnelProviderManager.loadAllFromPreferences() { (managers, error) -> Void in
             if let managers = managers, managers.count > 0 {
                 self.manager = managers[0]
@@ -93,22 +102,40 @@ class MainViewController: UITableViewController, UITextFieldDelegate {
             self.session = self.manager?.connection as? NETunnelProviderSession
 
             self.render()
+            self.statusDidChange(nil)
         }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
+        // Helps to dismiss keyboard, when user taps in empty area.
+        if let tap = tap {
+            view.addGestureRecognizer(tap)
+        }
+
+        // Receive notifications about extension lifecycle.
+        NotificationCenter.default.addObserver(self, selector: #selector(statusDidChange),
+                                               name: .NEVPNStatusDidChange, object: nil)
 
         render()
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        if let tap = tap {
+            view.removeGestureRecognizer(tap)
+        }
+
+        NotificationCenter.default.removeObserver(self)
+    }
 
     // MARK: UITextFieldDelegate
 
+    /**
+     Handle text field data entry.
+    */
     public func textFieldDidEndEditing(_ textField: UITextField) {
         port = portTF.text
         password = passwordTF.text
@@ -121,8 +148,7 @@ class MainViewController: UITableViewController, UITextFieldDelegate {
             "encryption": self.encryption ?? "",
         ]
 
-        connectBt.isEnabled = !(server ?? "").isEmpty && !(port ?? "").isEmpty
-            && !(password ?? "").isEmpty && !(encryption ?? "").isEmpty
+        enableButton()
     }
 
     /**
@@ -167,18 +193,65 @@ class MainViewController: UITableViewController, UITextFieldDelegate {
                 // Don't show an error here - user already saw a UIAlertController and maybe even
                 // the passphrase scene or similar.
                 if error.errorCode != 5 /* "permission denied" */ {
+                    print(error)
                     self.errorAlert(error)
                 }
 
                 return
             }
 
-            do {
-                try self.session?.startVPNTunnel()
-            } catch let error {
-                self.errorAlert(error)
+            // This is needed when storing for the first time, otherwise we will receive an error
+            // "NEVPNErrorDomain Code=1".
+            self.manager?.loadFromPreferences() { (error) -> Void in
+                if let error = error {
+                    print(error)
+                    self.errorAlert(error)
+
+                    return
+                }
+
+                do {
+                    try self.session?.startVPNTunnel()
+                } catch let error {
+                    self.errorAlert(error)
+                }
+
+                self.commChannel()
             }
         }
+    }
+
+    @objc func statusDidChange(_ note: Notification?) {
+        let labelText: String
+        let buttonText: String
+
+        if let session = session {
+            switch session.status {
+            case .connecting:
+                labelText = NSLocalizedString("connection establishing...", comment: "")
+                buttonText = NSLocalizedString("Disconnect", comment: "")
+            case .connected:
+                labelText = NSLocalizedString("connection established", comment: "")
+                buttonText = NSLocalizedString("Disconnect", comment: "")
+            case .reasserting:
+                labelText = NSLocalizedString("connection reestablishing...", comment: "")
+                buttonText = NSLocalizedString("Disconnect", comment: "")
+            case .disconnecting:
+                labelText = NSLocalizedString("connection disestablishing...", comment: "")
+                buttonText = NSLocalizedString("Connect", comment: "")
+            case .invalid, .disconnected:
+                labelText = NSLocalizedString("connection not established", comment: "")
+                buttonText = NSLocalizedString("Connect", comment: "")
+            }
+        }
+        else {
+            labelText = NSLocalizedString("not initialized", comment: "")
+            buttonText = NSLocalizedString("...waiting...", comment: "")
+        }
+
+        statusLb.text = labelText
+        connectBt.setTitle(buttonText, for: UIControlState())
+        enableButton()
     }
 
 
@@ -194,13 +267,48 @@ class MainViewController: UITableViewController, UITextFieldDelegate {
         passwordTF.text = password
         encryptionLb.text = encryption
 
+        enableButton()
+    }
+
+    private func enableButton() {
         connectBt.isEnabled = !(server ?? "").isEmpty && !(port ?? "").isEmpty
             && !(password ?? "").isEmpty && !(encryption ?? "").isEmpty
     }
 
     private func errorAlert(_ error: Error) {
-        let alert = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        let alert = UIAlertController(title: NSLocalizedString("Error", comment: ""),
+                                      message: error.localizedDescription, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""),
+                                      style: .cancel, handler: nil))
         present(alert, animated: true)
+    }
+
+    private func commChannel() {
+        print("Attach to extension.")
+
+        if session?.status != .invalid {
+            do {
+                try session?.sendProviderMessage(Data()) { response in
+                    if let response = response {
+                        if let response = NSKeyedUnarchiver.unarchiveObject(with: response) as? [String: Any] {
+                            if let log = response["log"] as? [String] {
+                                for line in log {
+                                    print(line.trimmingCharacters(in: .whitespacesAndNewlines))
+                                }
+                            }
+                        }
+                    }
+                }
+            } catch {
+                print("Could not attach to extension. Error: \(error)")
+            }
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: self.commChannel)
+        }
+        else {
+            print("Could not attach to extension. "
+                + "VPN configuration does not exist or is not enabled. "
+                + "No further actions will be taken.")
+        }
     }
 }

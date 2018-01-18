@@ -135,12 +135,36 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f3D-tH-pnZ">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GcO-bw-pfJ">
+                                                    <rect key="frame" x="16" y="12" width="104" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="not initialized" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Brs-Qt-szA">
+                                                    <rect key="frame" x="128" y="12" width="231" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="7Je-Rc-sqw">
+                                        <rect key="frame" x="0.0" y="284" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7Je-Rc-sqw" id="hko-Sq-EXo">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UxY-XK-z2A">
                                                     <rect key="frame" x="16" y="7" width="343" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Connect!"/>
+                                                    <state key="normal" title="...waiting..."/>
                                                     <connections>
-                                                        <action selector="connect" destination="3JL-j2-4WB" eventType="touchUpInside" id="PsG-Ie-hoI"/>
+                                                        <action selector="connect" destination="3JL-j2-4WB" eventType="touchUpInside" id="ghc-OS-ojh"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -156,11 +180,12 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="iONE" id="cev-Dy-ayn"/>
                     <connections>
-                        <outlet property="connectBt" destination="f3D-tH-pnZ" id="a52-AQ-apc"/>
+                        <outlet property="connectBt" destination="UxY-XK-z2A" id="ZSa-gf-6np"/>
                         <outlet property="encryptionLb" destination="0sK-ZX-jzf" id="AVq-h3-EdV"/>
                         <outlet property="passwordTF" destination="EGy-5v-wQD" id="OPw-Fd-9go"/>
                         <outlet property="portTF" destination="Zy8-ei-Zoj" id="dWI-u1-pxm"/>
                         <outlet property="serverTF" destination="9j1-jJ-mhP" id="AzD-e2-PWc"/>
+                        <outlet property="statusLb" destination="Brs-Qt-szA" id="vSj-PE-NtW"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0qH-A4-Lme" userLabel="First Responder" sceneMemberID="firstResponder"/>
