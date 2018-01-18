@@ -22,10 +22,42 @@ class MainViewController: UITableViewController, UITextFieldDelegate {
     var manager: NETunnelProviderManager?
     var session: NETunnelProviderSession?
     var conf: NETunnelProviderProtocol?
-    var server: String?
-    var port: String?
-    var password: String?
-    var encryption: String?
+
+    var server: String? {
+        get {
+            return conf?.providerConfiguration?["server"] as? String
+        }
+        set(newServer) {
+            conf?.providerConfiguration?["server"] = newServer
+        }
+    }
+
+    var port: String? {
+        get {
+            return conf?.providerConfiguration?["port"] as? String
+        }
+        set(newPort) {
+            conf?.providerConfiguration?["port"] = newPort
+        }
+    }
+
+    var password: String? {
+        get {
+            return conf?.providerConfiguration?["password"] as? String
+        }
+        set(newPassword) {
+            conf?.providerConfiguration?["password"] = newPassword
+        }
+    }
+
+    var encryption: String? {
+        get {
+            return conf?.providerConfiguration?["encryption"] as? String
+        }
+        set(newEncryption) {
+            conf?.providerConfiguration?["encryption"] = newEncryption
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,11 +92,6 @@ class MainViewController: UITableViewController, UITextFieldDelegate {
 
             self.session = self.manager?.connection as? NETunnelProviderSession
 
-            self.server = self.conf?.providerConfiguration?["server"] as? String
-            self.port = self.conf?.providerConfiguration?["port"] as? String
-            self.password = self.conf?.providerConfiguration?["password"] as? String
-            self.encryption = self.conf?.providerConfiguration?["encryption"] as? String
-
             self.render()
         }
     }
@@ -88,9 +115,9 @@ class MainViewController: UITableViewController, UITextFieldDelegate {
         server = serverTF.text
 
         conf?.providerConfiguration = [
-            "server": self.server!,
-            "port": self.port!,
-            "password": self.password!,
+            "server": self.server ?? "",
+            "port": self.port ?? "",
+            "password": self.password ?? "",
             "encryption": self.encryption ?? "",
         ]
 
@@ -124,7 +151,7 @@ class MainViewController: UITableViewController, UITextFieldDelegate {
         print("Connect!")
 
         // Displayed in Settings app. Update to latest values.
-        conf?.serverAddress = "\(self.server!):\(self.port!)"
+        conf?.serverAddress = "\(self.server ?? ""):\(self.port ?? "")"
 
         // Update latest configuration changes.
         manager?.protocolConfiguration = conf
