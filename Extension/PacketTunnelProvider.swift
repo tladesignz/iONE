@@ -7,6 +7,7 @@
 //
 
 import NetworkExtension
+//import tun2socks
 
 class PacketTunnelProvider: NEPacketTunnelProvider {
 
@@ -19,6 +20,9 @@ class PacketTunnelProvider: NEPacketTunnelProvider {
         // Add code here to start the process of connecting the tunnel.
 
         log("startTunnel, options: \(String(describing: options))")
+
+        let profile = profile_t()
+        start_ss_local_server(profile)
 
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             completionHandler(nil)

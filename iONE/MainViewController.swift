@@ -219,6 +219,10 @@ class MainViewController: UITableViewController, UITextFieldDelegate {
                 self.commChannel()
             }
         }
+
+//        let profile = profile_t()
+//        start_ss_local_server(profile)
+
     }
 
     @objc func statusDidChange(_ note: Notification?) {

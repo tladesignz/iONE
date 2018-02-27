@@ -1,0 +1,15 @@
+PODS:
+  - libev (4.15.0)
+  - libsodium (1.0.12)
+
+DEPENDENCIES:
+  - libev (~> 4.15)
+  - libsodium (~> 1.0.12)
+
+SPEC CHECKSUMS:
+  libev: 3d707424e53d6a4469fd5f1e5a35377f1ea97262
+  libsodium: 9a8faa5ef2fa0d2d57bd7f7d79bf8fb7c1a9f0ea
+
+PODFILE CHECKSUM: dd7c31ba7147f533f0edfe39593ae73d28b2642e
+
+COCOAPODS: 1.4.0
